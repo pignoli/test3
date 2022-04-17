@@ -1,6 +1,8 @@
-from django.http.response import HttpResponse
-from django.shortcuts import render
+from django.views.generic import ListView
+from .models import Photo
 
-def index(request):
-    return HttpResponse("<h1>Hello World!</h1>")
+class PhotoListView(ListView):
+    model=Photo
+    template_name="album/photo_list.html"
+    content_object_name="photos"
 
